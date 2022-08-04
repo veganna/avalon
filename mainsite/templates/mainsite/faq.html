@@ -1,0 +1,83 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticmanager %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'mainsite/css/faq.css'%}"></link>
+{% endblock  %}
+
+
+
+{% block content %}
+
+<div class="faq">
+   <h1 class="desktopH1">Frequently Asked Questions</h1>
+   <h1 class="mobileH1">FAQ</h1>
+
+    <div class="wrapper">
+        <div class="tableOfCategories">
+            <h3>Table of content</h3>
+                <ul>
+                    {% for categorie in objects %}
+                        <li onclick="activateItem(this)" class="faqcategories">{{categorie}}</li>
+                    {% endfor %}
+                </ul>
+        </div>
+        <div class="tableOfContents">
+
+            {% for categorie in objects %}
+                <div id="{{categorie}}-block"  class="category">
+                    {% for item in categorie.faqitem_set.all %}
+                    <div class="block">
+                        <div class="flexbox">
+                            <div class="title">
+                                {{item}}
+                            </div>
+                            <div onclick="activate(this)" class="opener"></div>
+                        </div>
+                        <div class="description">
+                            {{item.faqText}}
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+    function activate(object){
+        let flag = false
+        if (object.classList.contains('active'))
+            flag = true
+
+        Array.from(document.getElementsByClassName('opener')).map(item => item.classList.remove('active'))
+        Array.from(document.getElementsByClassName('description')).map(item => item.classList.remove('show')) 
+        object.classList.toggle('active')
+        object.parentElement.parentElement.children[1].classList.toggle('show')
+
+        if (flag){
+            object.classList.remove('active')
+            object.parentElement.parentElement.children[1].classList.remove('show')
+        }
+    }
+    function initFaq(){
+        let firstElement = document.getElementsByClassName('faqcategories')[0]
+        firstElement.classList.add('active')
+        document.getElementById(`${firstElement.innerHTML}-block`).classList.add('show')
+    }
+    initFaq()
+
+    function activateItem(object){
+        Array.from(document.getElementsByClassName('faqcategories')).map(item => item.classList.remove('active'))
+        object.classList.add('active')
+        Array.from(document.getElementsByClassName('category')).map(item => item.classList.remove('show'))
+        document.getElementById(`${object.innerHTML}-block`).classList.add('show')
+    }
+
+</script>
+{% endblock %}

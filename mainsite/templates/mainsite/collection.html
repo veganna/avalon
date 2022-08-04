@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticmanager %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'mainsite/css/collection.css'%}"></link>
+{% endblock  %}
+
+
+
+{% block content %}
+
+<div class="collection">
+    <div class="filter">
+    </div>
+
+    <div class="itemlist">
+        {% for object in objects %}
+        <a href="{% url 'collection-item-view' object.id %}">
+            <div class="item">
+                <div class="photo">
+                    <img src='/media/{{object.nftPhoto}}'>
+                    <div class="likes"><i class="fa fa-heart-o"></i> {{object.nftLikes}}</div>
+                </div>
+                <div class="title">{{object.nftTitle}}</div>
+                <div class="creator">
+                    <div class="userPhoto"><img src=""></div>
+                    <div class="userBlock">
+                        <div class="label">Creator</div>
+                        <div class="userName">{{object.nftCreators.nftName}}</div>
+                    </div>
+                    <div style="background-color:{{object.nftTags.nftTagColor}}" class="itemTag">{{object.nftTags.nftTagName}}</div>
+                </div>
+                <hr>
+                <div class="footerBlock">
+                    <div class="footerBlockLabel">Current Bid</div>
+                    <div class="Values">{{object.nftPrice}} {{object.nftCoins.abvName}} <span>= ${{object.convert}}</span></div>
+                </div>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+  
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+   
+
+</script>
+{% endblock %}

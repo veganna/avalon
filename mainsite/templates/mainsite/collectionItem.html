@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticmanager %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'mainsite/css/carousel.css'%}"></link>
+    <link rel="stylesheet" href="{% static 'mainsite/css/collectionItem.css'%}"></link>
+{% endblock  %}
+
+
+
+{% block content %}
+
+<div class="collectionitem">
+
+    <div class="mainphoto">
+        <img src="/media/{{object.nftPhoto}}">
+    </div>
+    <div class="mainstatus">
+
+        <div class="maintitle">{{object.nftTitle}}</div>
+        <div class="interactbuttons">
+            <div class="block">
+                <div class="button"><i class="fa fa-eye"></i> {{object.nftWatched}}</div>
+                <div class="button"><i class="fa fa-heart-o"></i> {{object.nftLikes}}</div>
+            </div>
+            <div class="block">
+                <div class="roundbutton"><i class="fa fa-paper-plane-o"></i></div>
+                <div class="roundbutton">...</div>
+            </div>
+        </div>
+        <div class="ownersblocks">
+            <div class="block">
+                <div class="userPhoto"><img src=""></div>
+                <div class="userBlock">
+                    <div class="label">Owned by</div>
+                    <div class="userName">{{object.nftOwner.nftName}}</div>
+                </div>
+
+            </div>
+            <div class="block">
+                <div class="userPhoto"><img src=""></div>
+                <div class="userBlock">
+                    <div class="label">Creator</div>
+                    <div class="userName">{{object.nftCreators.nftName}}</div>
+                </div>
+            </div>
+        </div>
+        <div class="subtitle">
+            {{object.nftDescription |safe}}
+        </div>
+        <div class="bidblock">
+            <div class="block">
+                <span class="lesser">Current Bid</span><span>{{object.nftPrice}} Eth&nbsp&nbsp<span class="minimum">&nbsp=&nbsp${{object.convert}}</span></span>
+            </div>
+            <div class="block">
+                <span class="lesser">Countdown</span>
+                <span>{{object.countdown}}</span>
+            </div>
+        </div>
+        <button><i class='fa fa-suitcase'></i>&nbsp&nbspPlace a bid</button>
+        <div class="statsgrid">
+            <div class="nameitem">
+                <span class="lesser">Name</span>
+                <span class="second">{{object.nftTitle}}</span>
+            </div>
+            <div class="nameitem">
+                <span class="lesser">Element</span>
+                <span class="second">{{object.nftElements}}</span>
+            </div>
+            <div class="nameitem">
+                <span class="lesser">Rarity</span>
+                <span class="second">{{object.nftRarities}}</span>
+            </div>
+            <div class="nameitem">
+                <span class="lesser">Type</span>
+                <span class="second">{{object.nftTypes}}</span>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<section id="carouselheader" class="carouselheader">
+    {% csrf_token %}
+    {% include './carousel.html' with objects=serve %}
+
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script>
+
+   
+
+</script>
+{% endblock %}

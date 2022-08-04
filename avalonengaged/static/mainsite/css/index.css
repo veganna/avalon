@@ -1,0 +1,568 @@
+.bgimage{
+    filter:brightness(0.9);
+    overflow: hidden;
+    height: max-content;
+
+}
+.bgimage .imgblock {
+    display: flex;
+    position: absolute;
+    width: 100%;
+    height: unset;
+    justify-content: center;
+}
+
+.bgimage img{
+    width:unset;
+    height:unset;
+}
+
+@media screen and (min-width:1900px) {
+    .bgimage .imgblock{
+        height:unset
+    }
+    .bgimage img {
+        width: 100%;
+        height: 100%;
+    }
+    .phrase img{
+        width:100%
+    }
+    
+}
+
+
+
+.content{
+    margin-top: 5rem;
+}
+
+.recbloc {
+    position: relative;
+    top: 10%;
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    opacity: .9;
+}
+.wrapper{
+    position: relative;
+    line-height: 1.5rem;
+    width: 60%;
+    flex-direction: row;
+    background-color: var(--gray);
+    justify-content: center;
+    flex-wrap: nowrap;
+}
+
+
+
+.wrapper .image{
+    width: 27rem;
+    padding: 1rem;
+}
+
+.wrapper .image img{
+    width:100%;
+    height: 100%
+}
+.texts .subtitle,
+.texts .title{
+    font-weight: bold;
+    color: var(--blue);
+    font-size: 1.1em;
+}
+.texts .subtitle{
+    font-size: .8em;
+}
+
+.wrapper .texts{
+    display: flex;
+    padding: 1rem;
+    padding-left: 0;
+    min-height: 11rem;
+    justify-content: flex-end;
+}
+
+.texts .text{
+    font-family: ralewaylight;
+    font-size: .85em;
+    color: #F5F5F5;
+    width: 67%;
+    display: flex;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
+    line-height: 2rem;
+}
+
+.recbloc .paralel{
+    background-color: var(--gray);
+    width: 0rem;
+    position: relative;
+    border-bottom: 1px solid var(--blue)
+}
+
+.recbloc .skew {
+    height: 100%;
+    width: 11rem;
+    border-right: 5px solid var(--blue);
+    transform: skewX(20deg) scale(1.001);
+    transform-origin: top right;
+    background-color: var(--gray);
+    position: absolute;
+    right: 0;
+    z-index: -1;
+}
+
+.indexTitle {
+    font-family: gameOfSquids;
+    position: relative;
+    margin-top: 18rem;
+    margin-bottom: 2rem;
+    color: var(--white);
+    font-size: 5em;
+    left: 19%;
+    width: fit-content;
+}
+
+.indexTitle span{
+    color:var(--blue)
+}
+
+.linksImages{
+    position: relative;
+    display: flex;
+    top: 85%;
+    left: 19%;
+    height: 3rem;
+    width: 30rem;
+    gap: .5rem;
+    margin-top: 3rem;
+    margin-bottom: 4rem;
+}
+
+
+.linksImages a{
+    width: 3rem;
+    height: 3rem;
+    display: block;
+    
+}
+
+.linksImages img:hover{
+    filter:hue-rotate(20deg);
+
+}
+
+.linksImages img{
+    position:relative;
+    cursor:pointer;
+    width:100%;
+    aspect-ratio:1/1;
+    min-height:unset;
+    min-width:unset
+}
+
+.sectionheader{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        width: 60%;
+        margin: 0 auto;
+        color: var(--blue);
+        font-size: 1.8em;
+        gap: 1rem;
+    
+}
+
+.sectionheader h1{
+    min-width: 16rem;
+    text-align:center
+}
+
+.storyblock{
+        display: flex;
+        justify-content: center;
+        margin: 0 auto;
+        width: 60%;
+        gap: 1rem;
+        margin-bottom:5rem;
+}
+
+.storyblock .title {
+    margin-bottom: 1rem;
+    color:var(--gold3)
+}
+
+.storyblock img {
+    width: 30rem;
+    height: 15rem;
+}
+
+.storyblock .textcontent {
+    color: white;
+    font-size: 1.3em;
+}
+
+.storyblock:nth-child(odd){
+    flex-direction: row-reverse;
+}
+
+.phrase {
+    position: relative;
+    height: 45rem;
+}
+
+.phrase img{
+    top: 0;
+    left: 0;
+    width: 160rem;
+    height: 60rem;
+    opacity: .8;
+    filter: brightness(.3);
+}
+
+hr.blueline{
+
+    width: 5rem;
+    margin:0;
+    border: 1px solid #194c78;
+
+}
+
+.phrase .textcontent{
+    position: relative;
+    color: var(--white2);
+    width: 50%;
+    top: 28%;
+    line-height: 2rem;
+    font-size: .9em;
+    left: 19%;
+}
+
+.phrase .indexTitle{
+    top:28%;
+    font-size:4em;
+    display: flex;
+    justify-content: center;
+    
+}
+
+.phrase .indexTitle span{
+    display: flex;
+    flex-direction: column;
+}
+
+.blogpost .Post {
+    display: flex;
+    margin: 1.5rem auto;
+    gap: 2rem;
+    width: 70%;
+    font-size: .85em;
+    justify-content: center;
+    line-height: 2rem;
+    color: var(--white);
+}
+
+section#roadmap{
+    width:unset
+}
+
+.blogpost .Post div{
+    position:relative;
+}
+
+.blogpost .Post:nth-child(odd){
+    flex-direction: row-reverse;
+}
+
+
+
+section.mainGrid{
+    margin:7rem auto;
+}
+
+.readbutton button {
+    position: relative;
+    background-color: transparent;
+    color: var(--black);
+    outline: none;
+    border: 0;
+    font-weight: bold;
+}
+
+.ending {
+    
+    margin:7rem auto;
+    display: flex;
+    gap: 5rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.ending .block{
+    width: 20rem;
+    height: 20rem;
+    border-radius: 50%;
+}
+
+.ending img{
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.ending .block-wrapper {
+    color: var(--white);
+    text-align: center;
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.3rem;
+    flex-direction: column;
+    align-items:center;
+}
+@media screen and (max-width:1250px){
+    .linksImages{
+        top:90%
+    }
+    
+}
+
+@media screen and (max-width:1000px) {
+    .bgimage .imgblock {
+        right: 23%;
+    }
+    .bgimage img {
+        width: 90rem;
+        height: 70rem;
+    }
+    .linksImages img{
+        width:100%;
+        height:100%;
+    }
+    .gallerysection{
+        display:none
+    }
+    .storyblock,
+    .ending{
+        flex-direction: column;
+    }
+    .sectionheader{
+        width: 100vw;
+        transform:scale(.25)
+    }
+    .storyblock:nth-child(odd){
+        flex-direction:column
+    }
+    .linksImages{
+        width: 100%;
+        top: 92%;
+        left: 0%;
+        justify-content: center;
+    }
+    .indexTitle{
+        width: 80%;
+        margin: 0 auto;
+        margin-top: 25rem;
+        margin-bottom: 3rem;
+        font-size: 1.5em;
+        display: block;
+        left: 0;
+        text-align: center;
+    }
+    .recbloc{
+        top:0%
+    }
+    .recbloc .skew{
+        transform: skewX(2deg) scale(1.001);
+        border-right: 1px solid var(--blue);
+    }
+    .wrapper{
+        width: 80%;
+    }
+    .texts .text{
+        width: 100%;
+    padding-left:1.5rem;
+    margin-top:0rem;
+    font-size: .8em;
+    }
+    .wrapper .texts{
+        padding-left: 0;
+        padding-right:0;
+    }
+    .blogpost .Post:nth-child(odd),
+    .blogpost .Post{
+        width:100%;
+        flex-direction: column;
+    }
+    section#blogpost{
+        width: 90vw;
+        margin: 0 auto;
+    }
+    .blogpost .Post div{
+        max-width:100%
+    }
+
+    .phrase .textcontent{
+        width: 80%;
+        top: 9%;
+        font-size: .8em;
+        margin: 0 auto;
+        line-height: 2rem;
+        left: 0%;
+    }
+    .phrase .indexTitle {
+        top: 12%;
+        font-size: 1.5em;
+    }
+    .phrase{
+        height:38rem
+    }
+    hr.blueline {
+        position: relative;
+        top: -24%;
+    }
+
+    .storyblock img{
+        width: 24rem;
+    }
+    .carousel{
+        justify-content:center
+    }
+    .carousel .itemlist{
+        display: flex;
+        flex-direction: column;
+    }
+    #carousel_wrapper .pagination{
+        display:none
+    }
+
+    .storyblock{
+        width:80%
+    }
+    .imgdiv {
+        overflow: hidden;
+        margin: 0 auto;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+    
+}
+
+@media screen and (max-width:400px){
+    .ending .block{
+        width:15rem;
+        height:15rem
+    }
+    .texts .text{
+        font-size:.6em
+    }
+}
+
+.phrasephoto {
+    position: absolute;
+    width: 100%;
+    height: inherit;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Post q::before{
+    content:''
+}
+
+.Post q{
+    position:relative;
+    color: var(--white2);
+    display: inline-block;
+    padding: 1rem 0rem 3rem 2.5rem;
+    margin-bottom: 2rem;
+    border-left: 3px solid var(--blue);
+    margin-left: 2rem;
+}
+
+span.quotes{
+    position: absolute;
+    left: -26px;
+    top: -1px;
+    z-index: 1;
+    display: inline-block;
+    width: 3rem;
+    aspect-ratio: 1 / .9;
+
+}
+.blogpost .Post span.quotes img{
+    width: 3rem;
+    height: 2.5rem;
+    max-width:unset
+}
+
+div.bigT {
+    float: left;
+    position: relative;
+    font-size: 5em;
+    top: 3%;
+    padding-right: 3rem;
+    padding-bottom: 8rem;
+    font-family: ralewayExtraBold;
+}
+
+.Post div p{
+    margin: 0;
+    position: relative;
+    top: -2%;
+}
+
+
+
+
+.blueButton {
+    width: 96%;
+    height: 74%;
+    background-color: var(--blue);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 95% 100%, 5% 100%, 0% 60%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.blueButton button{
+    font-family:ralewayBold;
+    cursor:pointer;
+}
+
+
+
+.readbutton {
+    position: relative;
+    width: 16rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5rem auto;
+    aspect-ratio: 1 / .12;
+}
+
+.readbutton:hover{
+    cursor:pointer;
+    filter:hue-rotate(25deg)
+}
+
+.blackborder {
+        width: 97%;
+        height: 80%;
+        background-color: #3E220D;
+        position: absolute;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 95% 100%, 5% 100%, 0% 60%);
+}
+
+.grayborder {
+    border-radius: 0.2rem;
+    width: 100%;
+    height: 100%;
+    background-color: #707070;
+    position: absolute;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 60%, 94% 100%, 6% 100%, 0% 60%);
+}

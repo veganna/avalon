@@ -1,0 +1,84 @@
+
+{% load static %}
+
+
+<style>
+    .pagination {
+        padding: 1rem 0rem;
+        text-align: center;
+        color: var(--white);
+    }
+
+    .pagination a {
+        color: var(--white);
+        cursor:pointer;
+        padding:0rem 1rem;
+    }
+    .itemlist a {
+    min-width: 0px;
+}
+    
+    
+</style>
+
+<div id="carousel_wrapper">
+    <div class="carousel">
+        <div class="itemlist">
+            {% for object in objects %}
+            <a href="{% url 'collection-item-view' object.id %}">
+                <div class="item">
+                    <div class="photo">
+                        <img src='/media/{{object.nftPhoto}}'>
+                        <div class="likes"><i class="fa fa-heart-o"></i> {{object.nftLikes}}</div>
+                    </div>
+                    <div class="title">{{object.nftTitle}}</div>
+                    <div class="creator">
+                        <div class="userPhoto"><img src=""></div>
+                        <div class="userBlock">
+                            <div class="label">Creator</div>
+                            <div class="userName">{{object.nftCreators.nftName}}</div>
+                        </div>
+                        <div style="background-color:{{object.nftTags.nftTagColor}}" class="itemTag">{{object.nftTags.nftTagName}}</div>
+                    </div>
+                    <hr>
+                    <div class="footerBlock">
+                        <div class="footerBlockLabel">Current Bid</div>
+                        <div class="Values">{{object.nftPrice}} {{object.nftCoins.abvName}} <span>= ${{object.convert}}</span></div>
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="pagination">
+        <span class="step-links">
+        
+                <a  {% if objects.has_previous %}onclick="changePage({{ objects.previous_page_number }})"{% endif %}><i class="fa fa-arrow-left"></i></a>
+            
+                <span class="circles">
+                    {% for x in objects.paginator %}
+                        {% if x.number|add:"-2" <= objects.number and x.number|add:"2" >= objects.number %}
+                        <a style="all:unset" onclick="changePage({{x.number}})">{% if x.number == objects.number%}<i class="fa fa-dot-circle-o"></i>{% else %}<i class="fa fa-circle-thin"></i>{% endif%}</a>
+                        {% endif %}
+                    {% endfor %}
+                </span>
+
+            
+                <a {% if objects.has_next %}onclick="changePage({{ objects.next_page_number }}) {% endif %}"><i class="fa fa-arrow-right"></i></a>
+            
+        </span>
+    </div>
+
+    
+</div>
+
+<script>
+var carouselurl = '{% url "carousel-view" %}'
+async function changePage(number){
+    data = createDataFiles('carousel', number)
+    data.append('page',number)
+    obj = await fetchpage2(carouselurl,data)
+    document.getElementById('carousel_wrapper').innerHTML = obj
+}
+</script>

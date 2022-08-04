@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+{% load static %}
+{% load staticmanager %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Avalon Engaged</title>{% endblock %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{% static 'css/base.css'%}"></link>
+    {% block style %}
+    {% endblock %}
+
+    <script src="{% static 'js/functions.js' %}"></script>
+    <style>
+        :root{
+            --white: #F7F7F7;
+            --white2: #FFFFFF80;
+            --black: #000000;
+            --blue: #5FC4E1;
+            --gray: #171d29;
+            --gold: #B38845;
+            --gold2: #E7B66A;
+            --gold3: #CDB8A9;
+            --background-second: #343444;
+            --grad1: #4D4F95;
+            --grad2: #2B2D66;
+            --background: #11121D;
+        }
+
+        
+        
+    </style>
+</head>
+<body>
+
+    
+
+    {% block bgimage%}
+    {% endblock %}
+
+    <div class="modal">
+        <div class="blackbox">
+        </div>
+        <div class="modalconten">
+        </div>
+    </div>
+
+    <header id="desktopHeader" class="desktopHeader">
+
+        <nav>
+            <a href="{% url 'index-view'%}">Home</a>
+            <a href="{% url 'roadmap-view'%}">Roadmap</a>
+            <a href="{% url 'about-view'%}">About</a>
+            <a class="minwidth" href="{% url 'index-view'%}">
+                <div class="darkbox"></div>
+                <div class="desktoplogo">
+                    <img src="{{ '' |staticmanager:"mainLogo"}}">
+                </div>
+                <div class="special"></div></a>
+            <a href="{% url 'gallery-view'%}">Gallery</a>
+            <a href="{% url 'collection-view'%}">NFT Collection</a>
+            <a href="#"></a>
+        </nav>
+    </header>
+
+    <header id="mobileHeader" class="mobileHeader">
+        <a class="mainblock" href="{% url 'index-view'%}">
+            <div class="darkbox"></div>
+            <div class="mobileLogo">
+                <img src="{{ '' |staticmanager:"mainLogo"}}">
+            </div>
+        </a>
+        <i onclick="mobileMainMenu.classList.add('active')" class="material-icons menuburguer">menu</i>
+
+        <div id="mobileMainMenu" class="mobileMainMenu">
+            <i onclick="mobileMainMenu.classList.remove('active')" class="material-icons closeburguer">close</i>
+            <nav>
+                <a href="{% url 'index-view'%}">Home</a>
+                <a href="{% url 'roadmap-view'%}">Roadmap</a>
+                <a href="{% url 'about-view'%}">About</a>
+                <a href="{% url 'gallery-view'%}">Gallery</a>
+                <a href="{% url 'collection-view'%}">NFT Collection</a>
+                <a href="#"></a>
+            </nav>
+        </div>
+
+    </header>
+
+
+    <div class="content">
+
+    {% block content %}
+    CONTENT
+    <BR>
+        <BR>
+            <BR>
+                <BR>
+                    <BR>
+                        <BR>
+                            <BR>
+                                <BR>
+                                    <BR>
+                                        CONTENT
+    {% endblock %}
+    </div>
+
+    <footer>
+        <div class="footer-wrapper">
+            <div class="footerLogo">
+                <img src="{{ '' |staticmanager:"mainLogo"}}">
+            </div>
+
+            <div class="footerMenu">
+                <h2>Menu</h2>
+                <ul>
+                    <a href="{% url 'about-view'%}"><li>About</li></a>
+                    <a href="{% url 'roadmap-view'%}"><li>Roadmap</li></a>
+                    <a href="{% url 'contact-view'%}"><li>Contact</li></a>
+                    <a href="{% url 'collection-view'%}"><li>NFT Collection</li></a>
+                    <a href="{% url 'faq-view'%}"><li>FAQ</li></a>
+                </ul>
+            </div>
+
+            <div class="footerService">
+                <h2>Service</h2>
+                <ul>
+                    <a href="#"><li>Lorem Impsum</li></a>
+                    <a href="#"><li>Lorem Impsum</li></a>
+                    <a href="#"><li>Lorem Impsum</li></a>
+                    <a href="#"><li>Lorem Impsum</li></a>
+                </ul>
+            </div>
+
+            <div class="footerSocialLinks">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-youtube-play"></i></a>
+            </div>
+        </div>
+        <div class="footerBottom">
+            <div class="footerLeft">
+                Copyright © 2022
+            </div>
+            <div class="footerRight">
+                <a href="{% url 'terms-view'%}">Terms of Use</a>
+                <a href="{% url 'policy-view'%}">Privacy Policy</a>
+            </div>
+        </div>
+
+    </footer>
+    <div id="overallBackground" class="overallBackground"></div>
+<script>
+function initBackground(){
+    const totalHeight = document.body.scrollHeight
+    stepHeight = Math.round(totalHeight/400)
+    const backGround = '<div><img src="{% static 'img/bgitem.png'%}"></div>'
+
+    for (let index = 0; index < stepHeight; index++) {
+        overallBackground.innerHTML += backGround
+    }
+
+    overallBackground.style['height'] = `${totalHeight}px`
+}
+initBackground()
+</script>
+
+    {% block scripts %}
+    {% endblock %}
+
+    
+</body>
+</html>

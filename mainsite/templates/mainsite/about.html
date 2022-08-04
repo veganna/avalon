@@ -1,0 +1,154 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticmanager %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'mainsite/css/about.css'%}"></link>
+{% endblock  %}
+
+{% block bgimage %}
+<div class="bgimage">
+    <img src="{{ ''|staticmanager:"aboutBG"}}">
+</div>
+{% endblock %}
+
+{% block content %}
+
+
+<section class="recbloc">
+    <div class="wrapper">
+        <div class="image">
+            <img src="{{ ''|staticmanager:"aboutSec1Img"}}">
+        </div>
+        <div class="texts">
+            <div class="title">
+                {{ ''|staticmanager:"aboutSec1Title" |safe}}
+            </div>
+            <div class="subtitle">
+                {{ ''|staticmanager:"aboutSec1Sub" |safe}}
+            </div>
+            <div class="text">
+                {{ ''|staticmanager:"aboutSec1Text" |safe}}
+            </div>
+        </div>
+        <div class="border"></div>
+        <div class="border greater"></div>
+    </div>
+    <div class="paralel">
+        <div class="skew">
+        </div>
+    </div>
+
+
+</section>
+
+<section class="recbloc">
+    <div class="wrapper">
+        <div class="image">
+            <img src="{{ ''|staticmanager:"aboutSec2Img"}}">
+        </div>
+        <div class="texts">
+            <div class="title">
+                {{ ''|staticmanager:"aboutSec2Title" |safe}}
+            </div>
+            <div class="subtitle">
+                {{ ''|staticmanager:"aboutSec2Sub" |safe}}
+            </div>
+            <div class="text">
+                {{ ''|staticmanager:"aboutSec2Text" |safe}}
+            </div>
+        </div>
+        <div class="border"></div>
+        <div class="border greater"></div>
+    </div>
+    <div class="paralel">
+        <div class="skew">
+        </div>
+    </div>
+
+</section>
+
+<section class="recbloc">
+    <div class="wrapper">
+        <div class="image">
+            <img src="{{ ''|staticmanager:"aboutSec3Img"}}">
+        </div>
+        <div class="texts">
+            <div class="title">
+                {{ ''|staticmanager:"aboutSec3Title" |safe}}
+            </div>
+            <div class="subtitle">
+                {{ ''|staticmanager:"aboutSec3Sub" |safe}}
+            </div>
+            <div class="text">
+                {{ ''|staticmanager:"aboutSec3Text" |safe}}
+            </div>
+        </div>
+        <div class="border"></div>
+        <div class="border greater"></div>
+    </div>
+    <div class="paralel">
+        <div class="skew">
+        </div>
+    </div>
+
+</section>
+
+<section class="recbloc">
+    <div class="wrapper">
+        <div class="image">
+            <img src="{{ ''|staticmanager:"aboutSec4Img"}}">
+        </div>
+        <div class="texts">
+            <div class="title">
+                {{ ''|staticmanager:"aboutSec4Title" |safe}}
+            </div>
+            <div class="subtitle">
+                {{ ''|staticmanager:"aboutSec4Sub" |safe}}
+            </div>
+            <div class="text">
+                {{ ''|staticmanager:"aboutSec4Text" |safe}}
+            </div>
+        </div>
+        <div class="border"></div>
+        <div class="border greater"></div>
+    </div>
+    <div class="paralel">
+        <div class="skew">
+        </div>
+        <div class="border">
+        </div>
+    </div>
+
+</section>
+
+<section class="recbloc">
+    <div class="wrapper">
+        <div class="image">
+            <img src="{{ ''|staticmanager:"aboutSec5Img"}}">
+        </div>
+        <div class="texts">
+            <div class="title">
+                {{ ''|staticmanager:"aboutSec5Title" |safe}}
+            </div>
+            <div class="subtitle">
+                {{ ''|staticmanager:"aboutSec5Sub" |safe}}
+            </div>
+            <div class="text">
+                {{ ''|staticmanager:"aboutSec5Text" |safe}}
+            </div>
+        </div>
+        <div class="border"></div>
+        <div class="border greater"></div>
+    </div>
+    <div class="paralel">
+        <div class="skew">
+        </div>
+    </div>
+
+
+</section>
+
+
+
+{% endblock %}

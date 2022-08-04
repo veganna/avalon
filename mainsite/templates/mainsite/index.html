@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticmanager %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'mainsite/css/carousel.css'%}"></link>
+    <link rel="stylesheet" href="{% static 'mainsite/css/roadmap.css'%}"></link>
+    <link rel="stylesheet" href="{% static 'mainsite/css/gallery.css'%}"></link>
+    <link rel="stylesheet" href="{% static 'mainsite/css/index.css'%}"></link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+{% endblock  %}
+
+{% block bgimage %}
+<div class="bgimage">
+    <div class="imgblock"><img src="{{ ''|staticmanager:"indexBG"}}"></div>
+    <div class="indexTitle">aVALON <span>ENgagEd</span></div>
+    <section class="recbloc">
+        <div class="wrapper">
+            <div class="texts">
+                <div class="text">
+                    {{ ''|staticmanager:"indexSec1Text" |safe}}
+                </div>
+            </div>
+            <div class="border"></div>
+            <div class="border greater"></div>
+        </div>
+        <div class="paralel">
+            <div class="skew">
+            </div>
+        </div>
+
+    
+    
+    </section>
+    <div class="linksImages">
+        <a href="/about/"> <img src="{% static 'img/facebookicon.png' %}"></a>
+        <a href="#"><img src="{% static 'img/twittericon.png' %}"> </a>
+        <a href="#"><img src="{% static 'img/ticon.png' %}"></a>
+        <a href="#"><img src="{% static 'img/etcicon.png' %}"></a>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+
+<section id="story" class="story">
+    <div class="sectionheader">
+        <img src="{% static 'img/bar1.png' %}">
+        <h1>OUR STORY</h1>
+        <img src="{% static 'img/bar2.png' %}">
+    </div>
+    <div class="storyblock">
+        <div id="storyDiv1" class="imgdiv" ><img onload="createLine1()" src="{{ '' |staticmanager:"indexStoryImg01"}}"></div>
+        <div class="texts">
+            <div class="title">{{ '' |staticmanager:"indexStoryTitle01"}}</div>
+           <div class="textcontent">{{ '' |staticmanager:"indexStoryContent01"}}</div>
+        </div>
+    </div>
+    <div class="storyblock">
+        <div id="storyDiv2" class="imgdiv"><img onload="createLine2()" src="{{ '' |staticmanager:"indexStoryImg02"}}"></div>
+        <div class="texts">
+            <div class="title">{{ '' |staticmanager:"indexStoryTitle02"}}</div>
+           <div class="textcontent">{{ '' |staticmanager:"indexStoryContent02"}}</div>
+        </div>
+    </div>
+    <div class="storyblock">
+        <div id = "storyDiv3" class="imgdiv"><img src="{{ '' |staticmanager:"indexStoryImg03"}}"></div>
+        <div class="texts">
+            <div class="title">{{ '' |staticmanager:"indexStoryTitle03"}}</div>
+           <div class="textcontent">{{ '' |staticmanager:"indexStoryContent03"}}</div>
+        </div>
+    </div>
+</section>
+
+<section id="phrase" class="phrase">
+    <div class="phrasephoto"><img src="{{ '' |staticmanager:"indexPhraseImg"}}"></div>
+    <div class="indexTitle">
+        <span>
+        AvaLON ENGaGEd
+        <hr class="blueline">
+        </span>
+        
+        </div>
+    
+    <div class="textcontent">{{ '' |staticmanager:"indexPhraseContext"}}</div>
+</section>
+
+<section  id="blogpost" class="blogpost">
+    <div class="sectionheader">
+        <img src="{% static 'img/bar1.png' %}">
+        <h1>BLOG POST</h1>
+        <img src="{% static 'img/bar2.png' %}">
+    </div>
+    {% for post in Posts %}
+        <div class="Post">
+            <div class="imgdiv"><img src="/media/{{post.image}}"></div>
+            <div>{{post.content |safe}}</div>
+        </div>
+    {% endfor %}
+    <div class="readbutton">
+        <div class="grayborder"></div>
+        <div class="blackborder"></div>
+        <div class="blueButton">
+            <button>READ MORE</button>
+        </div>
+    </div>
+
+    
+    
+</section>
+
+<section id="carouselheader" class="carouselheader">
+    {% csrf_token %}
+    {% include './carousel.html' with objects=serve %}
+
+</section>
+
+<section id="roadmap" class="roadmap">
+    <div class="sectionheader">
+        <img src="{% static 'img/bar1.png' %}">
+        <h1>ROADMAP</h1>
+        <img src="{% static 'img/bar2.png' %}">
+    </div>
+
+    {% include './roadmapcontent.html' %}
+</section>
+
+<section  id="gallery" class="gallerysection">
+    <div class="sectionheader">
+        <img src="{% static 'img/bar1.png' %}">
+        <h1>GALLERY</h1>
+        <img src="{% static 'img/bar2.png' %}">
+    </div>
+    <div class="gallery">
+
+        <div class="grid">
+            {% with gallery as objects %}
+            {% for object in objects %}
+                <div class="photo">
+                    <img src="/media/{{object.nftPhoto}}">
+                </div>
+            {% endfor %}
+            {% endwith %}
+        </div>
+    </div>
+</section>
+
+<section id="ending" class="ending">
+    {% for each in Team %}
+    <div class="block-wrapper">
+        <div class="block">
+            <img src="/media/{{each.photo}}">
+        
+        </div>
+        <div class="teamTitle">{{each.name}}</div>
+        <div class="teamDesc">{{each.description}}</div>  
+    </div>
+    {% endfor %}
+
+</section>
+
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'mainsite/js/leader-line.min.js' %}"></script>
+<script>
+
+
+
+function onInit(){
+    const quote = '<span class="quotes"><img src="{% static 'img/quotes2.png'%}"></span>'
+    const bigT = '<div class="bigT">T</div>'
+    const bigTarget = document.getElementsByClassName('Post')[0].children[1]
+    // Add quotes
+    Array.from(document.getElementsByTagName('q')).map(each =>{
+        each.innerHTML = quote + each.innerHTML
+    })
+    bigTarget.innerHTML = `<p>${bigTarget.innerHTML}</p>`
+    bigTarget.innerHTML = bigT + bigTarget.innerHTML
+
+    
+}
+onInit()
+
+var line1 = ''
+var line2 = ''
+function createLine1(){
+
+    var myLine = new LeaderLine(
+    document.getElementById('storyDiv1'),
+    document.getElementById('storyDiv2')
+
+); 
+    myLine.color = 'var(--blue)'
+    myLine.path = 'grid'
+    myLine.startSocket = 'right'
+    myLine.endSocket = 'top'
+    myLine.startPlug = 'disc'
+    myLine.endPlug = 'disc'
+    myLine.startPlugSize = 6
+    myLine.endPlugSize = 6
+    myLine.size = 1
+    line1 = myLine
+    if (window.screen.width < 1000){
+    myLine.hide()
+    }
+}
+
+function createLine2(){
+    var myLine = new LeaderLine(
+    document.getElementById('storyDiv2'),
+    document.getElementById('storyDiv3')
+); 
+    myLine.color = 'var(--blue)'
+    myLine.path = 'grid'
+    myLine.endSocket = 'top'
+    myLine.startSocket = 'left'
+    myLine.startPlug = 'disc'
+    myLine.endPlug = 'disc'
+    myLine.startPlugSize = 6
+    myLine.endPlugSize = 6
+    myLine.size = 1
+    line2 = myLine
+    if (window.screen.width < 1000){
+    myLine.hide()
+    }
+}
+
+window.addEventListener('resize', function(event) {
+    if (window.screen.width < 1000){
+        line1.hide()
+        line2.hide()
+        return
+    }
+    line1.show()
+    line2.show()
+    
+}, true);
+
+
+
+</script>
+{% endblock %}

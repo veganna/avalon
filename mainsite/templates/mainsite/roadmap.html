@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticmanager %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'mainsite/css/roadmap.css'%}"></link>
+{% endblock  %}
+
+{% comment %} {% block bgimage %}
+<div class="bgimage">
+    <img src="{{ ''|staticmanager:"aboutBG"}}">
+</div>
+{% endblock %} {% endcomment %}
+
+{% block content %}
+
+
+{% include './roadmapcontent.html' %}
+
+
+
+{% endblock %}

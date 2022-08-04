@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load staticmanager %}
+
+
+{% block content %}
+<style>
+
+    .mainterms{
+		position:relative;
+		margin: 5% 20%;
+		text-align: center;
+	}
+	
+	
+    .mainterms h1{
+        margin: 4rem 0rem;
+		font-size: 3em;
+		text-align:center;
+		color: var(--white);
+    }
+    .mainterms p{ 
+		all:unset;
+		line-height:1.5rem;
+		color: #939393;
+    }
+
+	.mainterms li{
+        all:unset;
+		line-height:1.5rem;
+		color: #939393;
+	}
+    .mainterms li:hover{
+        all:unset
+    }
+    .mainterms a{
+        all:unset
+    }
+
+
+
+
+</style>
+<div class="mainterms">
+{{ ''|staticmanager:'termsofuse' |safe }}
+</div>
+
+{% endblock %}

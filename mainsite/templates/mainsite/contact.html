@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load staticmanager %}
+
+{% block style %}
+    <link rel="stylesheet" href="{% static 'mainsite/css/contact.css'%}"></link>
+{% endblock  %}
+
+{% block bgimage %}
+<div class="bgimage">
+    <img src="{{ ''|staticmanager:"contactBG"}}">
+</div>
+{% endblock %}
+
+{% block content %}
+
+<div class="contact">
+    <form id="contactForm">
+        <div class="contactText">
+            <h1>{{ ''|staticmanager:"contactTitle"}}</h1>
+            <h3>{{ ''|staticmanager:"contactText"|safe}}</h3>
+        </div>
+
+        <input id="fullName" placeholder="Your Full Name" maxlength="255">
+        <input id="email" placeholder="Your Email Address" maxlength="255">
+        <select id="subject" placeholder="Select subject">
+            <option value="0">* Select subject</option>
+            {% for subject in subjects%}
+            <option value="{{subject.id}}">{{subject}}</option>
+            {% endfor%}
+        </select>
+        <textarea id="message" placeholder="Message" rows=5></textarea>
+        <div id="validations">
+        </div>
+        <input type="button" class="mainBtn" onclick="sendForm(this.parentElement, validations)" value={{ ''|staticmanager:"btnSend"|safe}}>
+    </form>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+async function sendForm(form, object){
+    data = createDataFiles("submit", form)
+    obj = await fetchpage2("",data)
+    obj = JSON.parse(obj)
+    object.innerHTML = `<li>${obj.message}</li>`
+    if (obj.code == 1){
+        reload(2000)
+        return
+    }
+    if (obj.code == -1){
+        form.children[0].focus
+    }
+}
+</script>
+{% endblock %}

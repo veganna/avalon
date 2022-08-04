@@ -1,0 +1,103 @@
+
+.contact{
+    display: flex;
+    justify-content: flex-end;
+}
+.bgimage{
+    z-index: -1;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+    justify-content: center;
+    position:relative;
+}
+.bgimage img {
+    width: 90rem;
+    height: 100%;
+    position: absolute;
+}
+
+@media screen and (min-width:1300px){
+    .bgimage img{
+        width:100%
+    }
+}
+
+#contactForm {
+    width: 41%;
+    font-size: 0.8em;
+    margin: 0 5%;
+    color: var(--white);
+}
+
+#contactForm .contactText{
+    margin: 0 2%;
+    margin-right: 30%
+}
+
+#contactForm h3{
+    font-weight:lighter;
+    line-height: 1.5rem;
+}
+
+#contactForm option,
+#contactForm select,
+#contactForm textarea,
+#contactForm input{
+    width: 100%;
+    background-color: transparent;
+    outline: none;
+    color: var(--white);
+    border: 1px solid var(--white);
+    border-radius: 0.5rem;
+    padding: 0.8rem;
+    margin: .7rem 0rem;
+    resize:none;
+}
+
+#contactForm option::placeholder,
+#contactForm select::placeholder,
+#contactForm textarea::placeholder,
+#contactForm input::placeholder{
+    color: #f7f7f766;
+}
+
+#contactForm option{
+    background-color:var(--background);
+
+    display:block;
+}
+
+#contactForm .mainBtn{
+    width: 100%;
+    background-color: transparent;
+    color: var(--white);
+    border: 1px solid var(--white);
+    padding: 1rem;
+    border-radius: 2rem;
+    margin-top: 1rem;
+    cursor:pointer
+}
+
+#contactForm .mainBtn:hover{
+    background-color:var(--white);
+    color:var(--background)
+}
+
+@media screen and (max-width: 768px) {
+    #contactForm{
+        width:100%
+    }
+    #contactForm .contactText {
+        margin: 0px 10%;
+    }
+    .bgimage{
+        position: absolute;
+        top: 0;
+        height: 50rem;
+    }
+}
+
+.content{
+    grid-row: 2 / 3
+}

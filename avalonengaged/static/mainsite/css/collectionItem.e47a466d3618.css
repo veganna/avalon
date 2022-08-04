@@ -1,0 +1,239 @@
+.collectionitem{
+    display: flex;
+    margin: 4rem auto;
+    width: 70%;
+    gap: 5rem;
+}
+
+.collectionitem .mainphoto {
+    min-width: 20rem;
+    width: 35rem;
+    aspect-ratio: 3 / 3.5;
+    border-radius:0.5rem
+}
+
+.collectionitem .mainphoto img{
+    width:100%;
+    height:100%;
+    border-radius:inherit;
+}
+
+.collectionitem .mainstatus {
+    max-width: 40rem;
+    line-height: 1.5rem;
+    color: var(--white);
+}
+
+.collectionitem .maintitle {
+    font-size: 1.8em;
+    font-weight: bold;
+    padding: 1rem 0rem;
+    padding-top: 0rem;
+}
+
+.collectionitem .interactbuttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 0rem;
+}
+
+.interactbuttons .block {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+
+.interactbuttons .block .button {
+    display: flex;
+    gap: .5rem;
+    background-color: var(--background-second);
+    align-items: center;
+    font-size: .9rem;
+    min-width: 4rem;
+    border-radius: 1rem;
+    padding: .2rem .4rem;
+    justify-content: center;
+    cursor:pointer;
+}
+
+.interactbuttons .block .roundbutton {
+    display: flex;
+    gap: .5rem;
+    background-color: var(--background-second);
+    align-items: center;
+    font-size: .9rem;
+    width: 2rem;
+    border-radius: 1rem;
+    padding: .2rem .4rem;
+    justify-content: center;
+    cursor:pointer;
+}
+
+.mainstatus .ownersblocks {
+    padding: 1rem 0rem;
+    padding-top:0rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+
+.ownersblocks .block {
+    flex: 1 1 50%;
+    padding: .25rem .5rem;
+    background-color: var(--background-second);
+    display: flex;
+    justify-content: space-between;
+    border-radius: 1rem;
+    align-items: center;
+}
+
+.ownersblocks .userPhoto{
+    width: 36px;
+    height: 36px;
+    border-radius: .8rem;
+    background-color: var(--white2);
+    padding: .3rem;
+}
+.ownersblocks .userPhoto img{
+    width: 100%;
+    height: 100%;
+    border-radius:inherit
+}
+
+.ownersblocks .userBlock {
+    display: flex;
+    flex: 1 1 0%;
+    margin: 0rem .5rem;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+
+.ownersblocks .Values,
+.ownersblocks .userName{
+    font-size: .9em;
+    font-weight: bold;
+    color: var(--white2);
+}
+
+.ownersblocks .Values span,
+.ownersblocks .footerBlockLabel,
+.ownersblocks .label {
+    font-size: .75em;
+    opacity: .5;
+    color: var(--white2);
+}
+
+.mainstatus .subtitle {
+    font-size: .6em;
+    padding: 1rem 0rem;
+    padding-top: 0rem;
+    color: var(--white2);
+}
+
+.mainstatus .bidblock {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-bottom: 1rem;
+    align-items: center;
+}
+
+
+.statsgrid .nameitem,
+.mainstatus .bidblock .block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--background-second);
+    padding: 1rem 2rem;
+    border-radius: .5rem;
+    flex: 1 1 50%;
+}
+
+span.lesser{
+        font-size: .8em;
+        color: var(--white2);
+}
+
+span.minimum {
+    font-size: .7em;
+    color: var(--white2);
+}
+
+.mainstatus button {
+    width: 100%;
+    background-color: transparent;
+    border-radius: 1rem;
+    padding: .8rem;
+    margin-bottom: 1rem;
+    color: var(--white);
+    border: 1px solid var(--white);
+    cursor:pointer;
+}
+
+.mainstatus button:hover{
+    background-color:var(--white);
+    color:var(--background-second)
+}
+
+.mainstatus .statsgrid {
+    display: grid;
+    grid-template-rows: auto auto;
+    gap: 1rem;
+    grid-auto-columns: minmax(0, 2fr);
+    grid-auto-flow: column;
+}
+
+@media screen and (max-width:1350px){
+    .collectionitem{
+        display: flex;
+        margin: 4rem auto 4rem auto;
+        width: 80%;
+        gap: 2rem;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width:768px){
+    .collectionitem .ownersblocks,
+    .collectionitem {
+        flex-direction: column;
+    }
+    .collectionitem .bidblock{
+        flex-direction: column;
+    }
+    .collectionitem .mainphoto {
+        min-width: 14rem;
+        width: 100%;
+        aspect-ratio: 3 / 3.5;
+        border-radius: 0.5rem;
+    }
+    .collectionitem .statsgrid{
+        grid-template-rows: auto auto auto auto;
+    }
+    .bidblock .block{
+        width:100%
+    }
+    .content{
+        font-size: 0.8em;
+    }
+    .interactbuttons .block{
+        gap:.5rem;
+    }
+    .carousel{
+        justify-content:center
+    }
+    .carousel .itemlist{
+        display: flex;
+        flex-direction: column;
+    }
+    #carousel_wrapper .pagination{
+        display:none
+    }
+
+}
+

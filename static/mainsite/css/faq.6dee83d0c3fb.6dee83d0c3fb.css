@@ -1,0 +1,159 @@
+.faq {
+    color: var(--white);
+    margin: 4rem auto;
+    width: 80%;
+}
+
+.faq h1{
+    text-align: center;
+    font-size: 3.5em;
+    font-weight: lighter;
+}
+
+.faq h3{
+    margin:0;
+    font-size: 1.5em;
+    margin-bottom: 3rem;
+}
+
+.faq .wrapper{
+    display:flex
+}
+
+.faq .tableOfCategories{
+    flex:1 1 20rem;
+}
+
+.faq ul{
+    list-style: none;
+    padding: 0;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--white2);
+}
+
+.faq .tableOfContents{
+    line-height: 2rem;
+    font-size: 1.1em;
+    width: 100%;
+}
+
+.faq .block{
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--white2);
+}
+
+.faq .title {
+    color: var(--blue);
+    margin-bottom: 1rem;
+}
+
+.faq .flexbox{
+    display:flex;
+    justify-content: space-between;
+}
+
+.faq .opener {
+    width: 2rem;
+    height: 2rem;
+    color: var(--black);
+    display: flex;
+    aspect-ratio: auto;
+    background-color: var(--blue);
+    font-size: 1.8em;
+    font-weight: 100;
+    align-items: center;
+    justify-content: center;
+    cursor:pointer;
+}
+
+.faq .opener:after{
+    content:'+'
+}
+
+.faq .opener.active {
+    background-color: transparent;
+    color: var(--blue);
+    width: 2rem;
+    height: 0rem;
+}
+
+
+.faq .opener.active:after{
+    content:'_'
+}
+
+.faq .category{
+    display:none
+}
+
+.faq .category.show{
+    display:block
+}
+
+
+.faq .description{
+    display:none;
+    max-width: 40rem;
+}
+
+.faq .show{
+    display:block
+}
+
+.faq ul li{
+    cursor:pointer;
+}
+
+.faq ul li.active{
+    color:var(--blue)
+}
+
+.desktopH1{
+    display:block
+}
+
+.mobileH1{
+    display:none
+}
+
+@media screen and (max-width:768px){
+    .desktopH1{
+        display:none
+    }
+    .mobileH1{
+        display:block
+    }
+    .faq{
+        width: 70%;
+        margin: 0rem auto;
+    }
+    .faq h1{
+        font-size:2em;
+        margin-bottom: 5rem;
+    }
+    .faq .wrapper {
+        gap: 3rem;
+        flex-direction: column;
+    }
+    .faq .tableOfCategories{
+        flex: 1 1 0rem;
+    }
+    .faq ul{
+        margin: 0 auto;
+        width: 70%;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        flex-direction: row;
+    }
+    .faq h3{
+        display:none;
+    }
+    .faq .title{
+        width: 80%;
+    }
+}
+
+

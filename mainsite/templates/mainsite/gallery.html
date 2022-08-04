@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block style %}
+<link rel="stylesheet" href="{% static 'mainsite/css/gallery.css'%}"></link>
+{% endblock %}
+
+{% block content%}
+<div class="gallery">
+
+    <div class="grid">
+        {% for object in objects %}
+            <div class="photo">
+                <img src="/media/{{object.nftPhoto}}">
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+  
